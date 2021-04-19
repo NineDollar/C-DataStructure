@@ -2,7 +2,7 @@
 // Created by Nine_Dollar on 2021/4/18.
 //
 /**
- * p: 
+ * p: 双向链表
  */
 #include <string.h>
 #include "stdio.h"

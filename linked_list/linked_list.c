@@ -13,10 +13,10 @@
 
 #define MAXSIZE 20
 
-typedef struct LNode {  //LNode类型
+typedef struct LNode {  //LNode结构体类型名
     ElemType data;  //数据域
     struct LNode *next;  //指针域
-} LNode, *LinkList;  //LNode变量
+} LNode, *LinkList;  //LNode结构体别名
 
 /**
  * @time 2021/4/16 21:45
