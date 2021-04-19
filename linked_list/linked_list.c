@@ -11,7 +11,7 @@
 #include "predefined.h"
 #include "string.h"
 
-#define SIZE 20
+#define MAXSIZE 20
 
 typedef struct LNode {  //LNode类型
     ElemType data;  //数据域
@@ -68,7 +68,7 @@ Status TraverElem(LinkList l) {
  */
 Status InitElem(LinkList l) {
     int i, e;
-    char se[SIZE] = "";
+    char se[MAXSIZE] = "";
     i = 0;
     LinkList p, q;
     while (1) {
