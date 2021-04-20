@@ -1,6 +1,7 @@
 //
-// Created by Nine_Dollar on 2021/4/18.
+// Created by Nine_Dollar on 2021/4/20.
 //
+
 /**
  * p: 顺序栈
  */
@@ -8,7 +9,7 @@
 #include "predefined.h"
 #include "stdlib.h"
 
-#define STACK_INIT_SIZE 10
+#define STACK_INIT_SIZE 100
 #define STACKINCREMENT 10
 
 typedef struct {
@@ -23,7 +24,7 @@ typedef struct {
  * @param
  * @return
  */
-Status Init(SqStack *s) {
+Status InitStack(SqStack *s) {
     s->base = (ElemType *) malloc(STACK_INIT_SIZE * sizeof(ElemType));
     if (!s->base) {
         printf("分配内存失败");
@@ -78,9 +79,11 @@ Status Pop(SqStack *s, ElemType *e) {
     return OK;
 }
 
+
+
 int main() {
     SqStack s;
-    Init(&s);
+    InitStack(&s);
 
     Push(&s, 4);
     Push(&s, 9);
@@ -88,15 +91,16 @@ int main() {
     Push(&s, 3453);
 
 //    获取栈顶元素
-   /* int e;
-    GetTop(&s, &e);
-    printf("栈顶元素%d\n", e);*/
+     int e;
+     GetTop(&s, &e);
+     printf("栈顶元素%d\n", e);
 
 //   退栈
-   /* int e;
-    Pop(&s, &e);
-    printf("%d\n", e); //退栈，先进后出*/
+    /* int e;
+     Pop(&s, &e);
+     printf("%d\n", e); //退栈，先进后出*/
 
     return OK;
 }
+
 

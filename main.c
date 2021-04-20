@@ -19,6 +19,6 @@ void hanoi(int n, char x, char y, char z) {
 int main() {
 //    printf("Hello, World!\n");
 
-    hanoi(3, 'x', 'y', 'z');
+//    hanoi(3, 'x', 'y', 'z');
     return TRUE;
 }
