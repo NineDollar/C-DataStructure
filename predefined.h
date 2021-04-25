@@ -16,6 +16,7 @@
 #define OVERFLOW -2
 //函数返回类型，函数结果状态代码
 typedef int Status;
+typedef unsigned int unint;
 
 /**
  * @time 2021/4/16 19:52

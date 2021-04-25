@@ -1,4 +1,4 @@
 include_directories(.)
 include_directories(../)
 
-add_executable(tree tree.c ../predefined.h )
+add_executable(hanoi hanoi.c ../predefined.h)

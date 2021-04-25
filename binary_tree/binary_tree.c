@@ -2,7 +2,7 @@
 // Created by Nine_Dollar on 2021/4/20.
 //
 /**
- * p: 二叉链表树
+ * p: 二叉链表树，非递归先序遍历，非递归中序遍历两种方法
  */
 
 #include "stdio.h"
@@ -168,7 +168,7 @@ Status InOrderTraverse(BiTree t, Status (*Visit)(TElemType e)) {
     InitStack(&s);//初始化栈
     Push(&s, t);//放入跟节点
     while (!StackEmpty(&s)) {
-        while (GetTop(&s,&p) && p){//中序遍历，先把所有节点左子树放入栈中
+        while (GetTop(&s,&p) && p){//中序遍历，左孩子依次进栈
             Push(&s, p->lchild);
         } //此时p位置在叶子的左孩子
         Pop(&s, &p);//p1,开始退栈,叶子节点孩子为NULL指针,所以空指针退栈,此时p位置在叶子节点的左孩子
