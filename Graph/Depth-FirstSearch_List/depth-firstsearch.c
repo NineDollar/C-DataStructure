@@ -57,6 +57,13 @@ int creatadjlist() {
     return vexnum;
 }
 
+
+/**
+ * @time 2021/4/25 10:43
+ * @description 深度优先搜索
+ * @param  v:开始遍历的顶点
+ * @return
+ */
 void dfs(int v){
     int w;
     ARCNODE *p;

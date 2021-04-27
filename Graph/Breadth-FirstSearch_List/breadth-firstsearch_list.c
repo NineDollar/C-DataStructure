@@ -57,6 +57,12 @@ int creatadjlist() {
     return vexnum;
 }
 
+/**
+ * @time 2021/4/25 10:42
+ * @description 广度优先搜索
+ * @param  v:开始的顶点
+ * @return
+ */
 void bfs(int v) {
     int queue[MAX_VEX];
     int front = 0, rear = 1;
