@@ -1,9 +1,10 @@
 //
-// Created by Nine_Dollar on 2021/4/28.
+// Created by Nine_Dollar on 2021/4/29.
 //
 /**
- * p: 直接插入排序
+ * p: 冒泡排序（气泡排序）
  */
+
 #include "stdio.h"
 #include "predefined.h"
 
@@ -13,26 +14,28 @@ typedef struct {
 } Record;
 
 /**
- * @time 2021/4/28 14:44
- * @description 对记录数组r做直接插入排序
- * @param  length待排序记录的数目
+ * @time 2021/4/29 14:13
+ * @description 对数组r做冒泡排序
+ * @param
  * @return
  */
-void insertSort(Record r[], int length) {
-    int i, j;
-    for (i = 2; i <= length; i++) {
-        r[0] = r[i];
-        j = i - 1;
-        while (r[0].key < r[j].key) {
-            r[j + 1] = r[j];
-            j = j - 1;
+void BubbleSort(Record r[],int length){
+    int n,i,j;
+    Record temp;
+    n = length;
+    for(i = 1; i<=n-1; ++i){
+        for(j = 1; j<=n-i;++j){
+            if(r[j].key>r[j+1].key){
+                temp = r[j];
+                r[j]=r[j+1];
+                r[j + 1] = temp;
+            }
         }
-        r[j + 1] = r[0];
     }
 }
 
-int main() {
-    printf("直接插入排序\n");
+int main(){
+    printf("冒泡排序（气泡排序）\n");
     int i, j;
     Record r[20];
     int len;
@@ -49,8 +52,8 @@ int main() {
         rewind(stdin);
         r[i].key = j;
     }
-    insertSort(r, len);
-    printf("直接插入排序输出:\n");
+    BubbleSort(r, len);
+    printf("冒泡排序输出:\n");
     for (i = 1; i <= len; i++) {
         printf("%d  ", r[i].key);
     }

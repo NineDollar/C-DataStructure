@@ -2,7 +2,7 @@
 // Created by Nine_Dollar on 2021/4/28.
 //
 /**
- * p: 直接插入排序
+ * p: 二分插入排序
  */
 #include "stdio.h"
 #include "predefined.h"
@@ -13,26 +13,36 @@ typedef struct {
 } Record;
 
 /**
- * @time 2021/4/28 14:44
- * @description 对记录数组r做直接插入排序
- * @param  length待排序记录的数目
+ * @time 2021/4/28 16:36
+ * @description 折半插入排序
+ * @param
  * @return
  */
-void insertSort(Record r[], int length) {
+void BinsertSort(Record r[], int length) {
     int i, j;
-    for (i = 2; i <= length; i++) {
-        r[0] = r[i];
-        j = i - 1;
-        while (r[0].key < r[j].key) {
-            r[j + 1] = r[j];
-            j = j - 1;
+    Record x;
+    int low, high, mid;
+    for(i = 2; i<=length;++i){
+        x = r[i];
+        low=1;
+        high = i - 1;
+        while (low <= high) {
+            mid = (low + high) / 2;
+            if(x.key < r[mid].key){ //左边插入
+                high = mid - 1;
+            } else{
+                low = mid + 1;  //右边查找
+            }
         }
-        r[j + 1] = r[0];
+        for (j = i - 1; j >= low; --j) {
+            r[j + 1] = r[j];
+        }
+        r[low] = x;
     }
 }
 
 int main() {
-    printf("直接插入排序\n");
+    printf("二分插入排序\n");
     int i, j;
     Record r[20];
     int len;
@@ -49,11 +59,10 @@ int main() {
         rewind(stdin);
         r[i].key = j;
     }
-    insertSort(r, len);
-    printf("直接插入排序输出:\n");
+    BinsertSort(r, len);
+    printf("二分插入排序输出:\n");
     for (i = 1; i <= len; i++) {
         printf("%d  ", r[i].key);
     }
     return TRUE;
 }
-
