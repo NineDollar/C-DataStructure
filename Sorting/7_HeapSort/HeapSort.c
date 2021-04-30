@@ -18,6 +18,7 @@ typedef struct {
  * @description r[k...m]是以r[k]为根的完全二叉树,
  * 且以分别以[2k]和r[2k+1]为左右树的小顶堆
  * 调整r[k],使整个序列r[k...m]满足堆的性质(根值小于(大于)左右孩子)
+ * 此算法生成最小堆
  * @param 
  * @return
  */
@@ -48,7 +49,7 @@ void sift(Record r[], int k, int m) {
 
 /**
  * @time 2021/4/29 20:13
- * @description 对数组r建堆
+ * @description 建成最小堆
  * @param
  * @return
  */

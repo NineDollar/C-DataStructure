@@ -2,7 +2,7 @@
 // Created by Nine_Dollar on 2021/4/21.
 //
 /**
- * p: 
+ * p: 赫夫曼树(哈夫曼树,最优二叉树)
  */
 #include <string.h>
 #include "stdio.h"
@@ -12,9 +12,9 @@
 #define MAXLEN 100
 
 typedef struct {
-    int weight;  //无符号整数
+    int weight;  //整数
     int parent, lchild, rchild;
-} HTNode, *HuffmanTree;
+} HTNode;
 
 typedef HTNode HFMT[MAXLEN];
 int n;
@@ -31,8 +31,7 @@ Status InitHFMT(HFMT T) {
     fflush(stdout);
     scanf("%d", &n);
     rewind(stdin);
-
-    for (i = 0; i < 2 * n - 1; ++i) {
+    for (i = 0; i < 2 * n - 1; i++) {
         T[i].weight = 0;
         T[i].lchild = -1;
         T[i].rchild = -1;
@@ -50,7 +49,7 @@ Status InitHFMT(HFMT T) {
 Status InputWeight(HFMT T) {
     int w;
     int i;
-    for (i = 0; i < n; ++i) {
+    for (i = 0; i < n; i++) {
         printf("输入第%d个权值：", i + 1);
         fflush(stdout);
         scanf("%d", &w);
@@ -66,20 +65,20 @@ Status InputWeight(HFMT T) {
  * @param
  * @return
  */
-Status Select(HFMT T, int i, int *p1, int *p2) {
+Status SelectMin(HFMT T, int i, int *p1, int *p2) {
     long min1 = 99999;
     long min2 = 99999;
     int j;
     for (j = 0; j <= i; j++) {
         if (T[j].parent == -1) {
-            if (min1 > T[i].weight) {  //找到最小的权值
+            if (min1 > T[j].weight) {  //找到最小的权值
                 min1 = T[j].weight;
                 *p1 = j;
             }
         }
     }
     for (j = 0; j <= i; j++) {
-        if (T[i].parent == -1) {
+        if (T[j].parent == -1) {
             if (min2 > T[j].weight && j != (*p1)) {
                 min2 = T[j].weight;
                 *p2 = j;
@@ -100,7 +99,7 @@ Status CreatHFMT(HFMT T) {
     InitHFMT(T);
     InputWeight(T);
     for (i = n; i < 2 * n - 1; i++) {
-        Select(T, i - 1, &p1, &p2);
+        SelectMin(T, i - 1, &p1, &p2);
         T[p1].parent = T[p2].parent = i;
         T[i].lchild = T[p1].weight;
         T[i].rchild = T[p2].weight;
@@ -116,18 +115,13 @@ Status CreatHFMT(HFMT T) {
  * @return
  */
 Status PrintHFMT(HFMT T) {
-    printf("哈夫曼树的各边显示：");
-    int i = 0, k = 0;
+    printf("哈夫曼树的各边显示：\n");
+    int i;
     for (i = 0; i < 2 * n - 1; i++) {
-        while (T[i].lchild != -1) {
-            if (!(k % 2)) {
-                printf("\n");
-            }
-            printf("\t\t(%d,%d),(%d,%d)", T[i].weight, T[i].lchild, T[i].weight, T[i].rchild);
-            k++;
-            break;
+        if (T[i].lchild != -1) {
+            printf("(%d<-%d->%d)", T[i].lchild, T[i].weight, T[i].rchild);
+            printf("\n");
         }
-        printf("\n");
     }
     return OK;
 }
@@ -152,24 +146,21 @@ Status hfnode(HFMT T, int i, int j) {
  * @return
  */
 Status huffmannode(HFMT T) {
-    printf("\t\t输入权值的对应哈夫曼编码：");
-    int i, j, a, k = 0;
-    for (i = 0; i < n; i++) {
+    printf("输入权值的对应哈夫曼编码：\n");
+    int i, j, a;
+    for (i = 0; i < n; i++) {  //输出哈夫曼编码
         j = 0;
         a = i;
-        if (!(k % 2)) {
-            printf("\n");
-        }
-        printf("\t\t%i:", T[i].weight);
-        k++;
+        printf("%i:", T[i].weight);
         hfnode(T, i, j);
         i = a;
+        printf("\n");
     }
     return OK;
 }
 
-
 int main() {
+    printf("赫夫曼树\n");
     HFMT HT;
     CreatHFMT(HT);
     PrintHFMT(HT);

@@ -2,7 +2,7 @@
 // Created by Nine_Dollar on 2021/4/29.
 //
 /**
- * p: 归并排序
+ * p: 归并排序，主要用于外部排序
  */
 
 #include "stdio.h"
@@ -19,28 +19,28 @@ typedef struct {
  * @param
  * @return
  */
-void Merge(Record r1[],int low,int mid,int high,Record r2[]){
+void Merge(Record r1[], int low, int mid, int high, Record r2[]) {
     int i, j, k;
     i = low;
     j = mid + 1;
     k = low;
-    while ((i<=mid)&&(j<=high)){  //归并
-        if(r1[i].key <= r1[j].key){
+    while ((i <= mid) && (j <= high)) {  //归并
+        if (r1[i].key <= r1[j].key) {
             r2[k] = r1[i];
             ++i;
-        } else{
+        } else {
             r2[k] = r1[j];
             ++j;
         }
         ++k;
     }
 //    若右剩余的,放入r2中
-    while (i<=mid){
+    while (i <= mid) {
         r2[k] = r1[i];
         k++;
         i++;
     }
-    while(j<=high){
+    while (j <= high) {
         r2[k] = r1[j];
         k++;
         j++;
@@ -53,12 +53,12 @@ void Merge(Record r1[],int low,int mid,int high,Record r2[]){
  * @param
  * @return
  */
-void MSort(Record r1[],int low,int high,Record r3[]){
+void MSort(Record r1[], int low, int high, Record r3[]) {
     int mid;
     Record r2[20];
     if (low == high) {
         r3[low] = r1[low];
-    } else{
+    } else {
         mid = (low + high) / 2;
         MSort(r1, low, mid, r2);
         MSort(r1, mid + 1, high, r2);
@@ -72,11 +72,11 @@ void MSort(Record r1[],int low,int high,Record r3[]){
  * @param  n长度
  * @return
  */
-void MergeSort(Record r[],int n){
+void MergeSort(Record r[], int n) {
     MSort(r, 1, n, r);
 }
 
-int main(){
+int main() {
     printf("归并排序\n");
     int i, j;
     Record r[20];
