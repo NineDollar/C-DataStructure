@@ -141,7 +141,7 @@ Status hfnode(HFMT T, int i, int j) {
 
 /**
  * @time 2021/4/22 16:32
- * @description 求解哈夫曼树
+ * @description 求解哈夫曼树,从叶子节点到根节点
  * @param
  * @return
  */

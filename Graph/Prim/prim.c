@@ -2,7 +2,7 @@
 // Created by Nine_Dollar on 2021/4/25.
 //
 /**
- * p: 
+ * p: Prim普里姆算法求最小生成树
  */
 
 #include "stdio.h"

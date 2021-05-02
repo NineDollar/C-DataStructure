@@ -21,7 +21,6 @@ typedef struct {
 
 int visited[MAX_VEX];
 
-
 int main() {
     printf("邻接矩阵深度优先搜索\n");
 
