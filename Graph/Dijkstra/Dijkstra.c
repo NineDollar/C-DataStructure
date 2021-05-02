@@ -40,7 +40,7 @@ int creatcost(int cost[][MAX_VEX]) {
 void dijkstra(int cost[][MAX_VEX], int vexnum) {
     //s数组记录顶点v是否确定最短路径,s[v] = 1;表示顶点v确定了最短路径;s[v] = 0,表示顶点v尚未确定最短路径
     //dist数组表示当前求出的从v1到vi的最短路径
-    //path是路径数组,其中path[i]表示源点到顶点vi之间最短路径上vi的前驱顶点,eg:路径(v1,v2,v3),则path[5]=3;
+    //path是路径数组,其中path[i]表示v1到顶点vi之间最短路径上vi的前驱顶点,eg:路径(v1,v2,v3),则path[5]=3;
     int path[MAX_VEX], s[MAX_VEX], dist[MAX_VEX], i, j, w, v, min, v1;
     printf("请输入源点v1:");
     fflush(stdout);
