@@ -36,4 +36,4 @@
 29. **堆排序**
 30. **归并排序**
 ## 31. **汉诺塔**
-![gffds](https://github.com/NineDollar/DataStructure/blob/983527de89994a426c8b4be2c8f8ad8705130a50/%E6%80%9D%E6%83%B3%E5%9B%BE/%E5%8D%95%E9%93%BE%E8%A1%A8.png)
+![gffds](https://github.com/NineDollar/DataStructure/单链表)
