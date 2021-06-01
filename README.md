@@ -1,2 +1,2 @@
-# DataStructure
- 线性表
+#DataStructure
+##1. 线性表
