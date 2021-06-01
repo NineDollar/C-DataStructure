@@ -1,4 +1,4 @@
 include_directories(.)
 include_directories(../..)
 
-add_executable(21_BinarySortTree BinarySortTree.c ../../predefined.h)
+add_executable(21_BinarySortTree 21_BinarySortTree.c ../../predefined.h)
